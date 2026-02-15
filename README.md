@@ -1,79 +1,58 @@
-# 🐴 2026 馬年大吉 - 扭转乾坤
+# 🐴 2026 Year of the Horse - Fortune Teller
 
 **Live Demo:** https://cny2026-horse-year.vercel.app/
 
-一个基于扭蛋机机制的趣味新年运势抽签应用，结合 AI 图像生成技术，让你在 2026 马年抽取专属好运！
+A fun Chinese New Year fortune-telling app with a gashapon machine interface and AI image generation. Draw your exclusive 2026 Year of the Horse fortune!
 
-## ✨ 特色功能
+🇨🇳 [中文版本](./chinese-readme.md)
 
-- 🎰 **扭蛋机体验** - 点击扭蛋机，抽取属于你的专属汤圆
-- 📸 **AI 图像生成** - 上传照片，AI 为你定制独一无二的卡通马形象
-- 🧧 **运势抽签** - 抽取「马类型」+「领域」+「祝福语」三重运势
-- 🎨 **精美设计** - 中国传统新年风格，灯笼、烟花、渐变色彩
-- 🌐 **双语支持** - 中文/English 一键切换
-- 📱 **移动端适配** - 完美支持手机访问
+## ✨ Features
 
-## 🎮 玩法
+- 🎰 **Gashapon Machine Experience** - Click the machine to draw your fortune capsules
+- 📸 **AI Image Generation** - Upload a photo, AI creates a unique cartoon horse based on your features
+- 🧧 **Triple Fortune Draw** - Draw "Horse Type" + "Domain" + "Blessing" for complete fortune
+- 🎨 **Beautiful Design** - Traditional Chinese New Year style with lanterns, fireworks, and gradients
+- 🌐 **Bilingual Support** - Switch between Chinese/English with one click
+- 📱 **Mobile Friendly** - Perfectly optimized for mobile devices
 
-1. 点击首页扭蛋机进入应用
-2. 上传你的照片（可选，AI 会根据照片特征生成专属小马）
-3. 点击扭蛋机抽取运势汤圆
-4. 点击汤圆打开，查看你的专属运势
-5. 保存或分享你的新年运势卡！
+## 🎮 How to Play
 
-## 🛠️ 技术栈
+1. Click the gashapon machine on the landing page to enter
+2. Upload your photo (optional - AI will generate a custom horse based on your features)
+3. Click the gashapon machine to draw fortune capsules
+4. Click the capsules to open and reveal your exclusive fortune
+5. Save or share your New Year fortune card!
 
-- **前端**: HTML5 + CSS3 + JavaScript (原生)
-- **后端 API**: Vercel Edge Functions
-- **AI 服务**: Together AI (图像分析 + 图像生成)
-- **部署**: Vercel
+## 🛠️ Tech Stack
 
-## 📁 项目结构
+- **Frontend**: HTML5 + CSS3 + Vanilla JavaScript
+- **Backend API**: Vercel Edge Functions
+- **AI Services**: Together AI (Vision Analysis + Image Generation)
+- **Deployment**: Vercel
+
+## 📁 Project Structure
 
 ```
 .
-├── index.html          # 主页面
+├── index.html          # Main page
 ├── api/
-│   ├── vision.js       # AI 图像分析 API
-│   └── image.js        # AI 图像生成 API
-├── background.png      # 背景图
-├── bigniudan.png       # 落地页扭蛋机
-├── machine.png         # 扭蛋机静态图
-└── machine.mp4         # 扭蛋机视频
+│   ├── vision.js       # AI image analysis API
+│   └── image.js        # AI image generation API
+├── background.png      # Background image
+├── bigniudan.png       # Landing page machine
+├── machine.png         # Machine static image
+└── machine.mp4         # Machine video animation
 ```
 
-## 🚀 本地开发
+## 🎨 Content
 
-```bash
-# 克隆项目
-git clone https://github.com/duoduo-weekend-coder/cny2026-horse-year.git
-cd cny2026-horse-year
+- **20 Horse Types** (Artsy Horse, Scholar Horse, Sporty Horse, etc.)
+- **20 Domains** (Career, Love, Health, Wealth, etc.)
+- **15 Blessings** (Instant Success, Get Rich Quick, Boundless Energy, etc.)
 
-# 本地预览（需要简单 HTTP 服务器）
-python3 -m http.server 8080
-# 或
-npx serve .
+## 🔗 Share
 
-# 访问 http://localhost:8080
-```
-
-## 🔑 环境变量
-
-部署到 Vercel 时需要配置：
-
-```
-TOGETHER_API_KEY=your_together_ai_api_key
-```
-
-## 📝 数据来源
-
-- 20 种「马」类型（文艺马、学霸马、运动马等）
-- 20 个「领域」（事业、爱情、健康、财运等）
-- 15 条「祝福语」（马到成功、马上有钱、龙马精神等）
-
-## 🤝 分享
-
-把链接分享给朋友，一起抽取 2026 马年好运！
+Share the link with friends and draw your 2026 Year of the Horse fortune together!
 
 **https://cny2026-horse-year.vercel.app/**
 
@@ -81,4 +60,4 @@ TOGETHER_API_KEY=your_together_ai_api_key
 
 Made with ❤️ by [duoduo_weekend_coder](https://github.com/duoduo-weekend-coder)
 
-丙午年 | 2026 新春
+Year of the Horse | 2026 Spring Festival
