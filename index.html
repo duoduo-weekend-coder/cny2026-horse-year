@@ -1,0 +1,2526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>2026 馬年大吉 | 扭一扭，扭转乾坤🌀</title>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+    :root {
+      --red-primary: #C41E24;
+      --red-dark: #8B0000;
+      --red-light: #E74C3C;
+      --gold-primary: #D4A843;
+      --gold-light: #F0D68A;
+      --gold-dark: #B8860B;
+      --cream: #FFF8E7;
+      --bg-dark: #201520; /* Dark purple-grey to match the image bottom */
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      /* Fallback gradient matching the image sky (Purple -> Orange -> Dark) */
+      background: linear-gradient(180deg, #5D4157 0%, #A88BEB 20%, #F8CE6A 50%, #FF9F1C 70%, #2C2C3A 100%);
+      /* The uploaded image (background.png) - show full image */
+      background-image: 
+        url('background.png'), 
+        linear-gradient(180deg, #5D4157 0%, #A88BEB 20%, #F8CE6A 50%, #FF9F1C 70%, #2C2C3A 100%);
+      background-size: contain, cover; /* 'contain' ensures full image is visible */
+      background-position: center top, center;
+      background-attachment: fixed, fixed;
+      background-repeat: no-repeat, no-repeat;
+      background-color: #201520; /* Fallback color matching dark areas */
+      color: var(--cream);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Background overlay for readability */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      /* Dark semi-transparent overlay to make text pop against the busy illustration */
+      background: rgba(30, 20, 30, 0.5);
+      backdrop-filter: blur(2px); /* Slight blur to soften details */
+      -webkit-backdrop-filter: blur(2px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Fireworks canvas */
+    #fireworks-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    /* Floating lanterns */
+    .lantern {
+      position: fixed;
+      width: 40px;
+      height: 55px;
+      animation: float 6s ease-in-out infinite;
+      z-index: 1;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+    .lantern:nth-of-type(1) { left: 5%; top: 5%; animation-delay: 0s; transform: scale(1); }
+    .lantern:nth-of-type(2) { right: 8%; top: 12%; animation-delay: 1.5s; transform: scale(0.9); }
+    .lantern:nth-of-type(3) { left: 15%; top: 15%; animation-delay: 2s; transform: scale(0.7); opacity: 0.6; filter: blur(1px); }
+    .lantern:nth-of-type(4) { right: 20%; top: 8%; animation-delay: 0.5s; transform: scale(0.8); }
+    .lantern:nth-of-type(5) { left: 35%; top: 2%; animation-delay: 3s; transform: scale(0.6); opacity: 0.5; filter: blur(2px); }
+    .lantern:nth-of-type(6) { right: 35%; top: 18%; animation-delay: 1s; transform: scale(0.85); }
+    .lantern:nth-of-type(7) { left: 50%; top: -2%; animation-delay: 4s; transform: scale(0.5); opacity: 0.4; filter: blur(2px); }
+    .lantern:nth-of-type(8) { left: 2%; top: 25%; animation-delay: 2.5s; transform: scale(0.75); }
+    .lantern:nth-of-type(9) { right: 2%; top: 30%; animation-delay: 0.8s; transform: scale(0.8); }
+    .lantern:nth-of-type(10) { left: 80%; top: 22%; animation-delay: 3.5s; transform: scale(0.65); opacity: 0.7; }
+    .lantern:nth-of-type(11) { right: 60%; top: 4%; animation-delay: 1.2s; transform: scale(0.55); opacity: 0.5; filter: blur(1px); }
+    .lantern:nth-of-type(12) { left: 25%; top: 35%; animation-delay: 2.2s; transform: scale(0.7); opacity: 0.6; }
+
+    .lantern-body {
+      width: 100%; height: 70%;
+      background: linear-gradient(135deg, #ff4444, var(--red-primary));
+      border-radius: 50% 50% 45% 45%;
+      position: relative;
+      box-shadow: 0 0 15px rgba(255, 68, 68, 0.4);
+    }
+    .lantern-body::before {
+      content: '福';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--gold-primary);
+      font-size: 14px;
+      font-weight: 900;
+      font-family: 'Noto Serif SC', serif;
+    }
+    .lantern-top {
+      width: 50%; height: 8px;
+      background: var(--gold-primary);
+      margin: 0 auto;
+      border-radius: 3px 3px 0 0;
+    }
+    .lantern-line {
+      width: 2px; height: 15px;
+      background: var(--gold-dark);
+      margin: 0 auto;
+    }
+    .lantern-tassel {
+      width: 3px; height: 20px;
+      background: linear-gradient(to bottom, var(--gold-primary), var(--red-primary));
+      margin: 0 auto;
+      border-radius: 0 0 2px 2px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-15px) rotate(2deg); }
+    }
+
+    /* Main container */
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+      position: relative;
+      z-index: 2;
+      background: rgba(20, 15, 20, 0.3); /* Subtle dark glass */
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      min-height: 100vh;
+      box-shadow: 0 0 40px rgba(0,0,0,0.4);
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 30px 0 20px;
+    }
+    .year-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
+      color: var(--red-dark);
+      padding: 4px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .header h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 42px;
+      font-weight: 900;
+      background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .header .subtitle {
+      color: var(--gold-primary);
+      font-size: 15px;
+      opacity: 0.8;
+      font-weight: 300;
+    }
+
+    /* Decorative divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px 0;
+      opacity: 0.6;
+    }
+    .divider-line {
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+    }
+    .divider-icon {
+      color: var(--gold-primary);
+      font-size: 14px;
+    }
+
+    /* =========================================
+       GASHAPON MACHINE (扭蛋机)
+       ========================================= */
+    .gashapon-section {
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .machine-container {
+      width: 320px; /* Slightly wider for the new image aspect ratio */
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Image-based Machine */
+    .machine-img {
+      width: 100%;
+      display: block;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+    }
+
+    .machine-container.shaking .machine-img {
+      animation: shake-machine 0.5s ease-in-out infinite;
+    }
+
+    @keyframes shake-machine {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-3px, 0px) rotate(1deg); }
+      30% { transform: translate(3px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-3px, 1px) rotate(0deg); }
+      70% { transform: translate(3px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(1px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+
+    /* Invisible Interaction Zones */
+    .knob-zone {
+      position: absolute;
+      width: 25%;
+      height: 25%;
+      bottom: 18%;
+      right: 18%;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 30; /* Higher than label */
+    }
+    
+    .knob-zone:active {
+        transform: scale(0.95);
+    }
+    
+    /* Knob Label Animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    .knob-label {
+      position: absolute;
+      bottom: 40%;
+      right: 10%; /* Adjusted position */
+      background: #fff;
+      color: var(--red-primary);
+      padding: 6px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      pointer-events: none;
+      z-index: 25;
+      animation: float 2s ease-in-out infinite;
+      white-space: nowrap;
+      text-align: center;
+      border: 2px solid var(--gold-primary);
+    }
+    /* Triangle pointer for label */
+    .knob-label::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0; 
+      height: 0; 
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid #fff;
+    }
+
+    /* Exit location for capsule spawn origin */
+    .exit-zone {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      /* background: blue; Debug */
+    }
+    
+    /* Remove old CSS drawing styles to avoid clutter/conflict */
+    /* .machine-top, .machine-body, etc. are no longer needed */
+
+
+    /* =========================================
+       CAPSULES (RESULTS)
+       ========================================= */
+    .capsules-tray {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+      min-height: 160px;
+      width: 100%;
+    }
+
+    .capsule-wrapper {
+      position: relative;
+      width: 100px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1000px;
+    }
+
+    .capsule {
+      width: 90px;
+      height: 100px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      transform-origin: center bottom;
+      opacity: 0;
+      transform: translateY(-50px) scale(0.5);
+    }
+
+    .capsule.dropped {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      animation: bounce-drop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes bounce-drop {
+      0% { transform: translateY(-100px) scale(0.5); opacity: 0; }
+      60% { transform: translateY(10px) scale(1.1); opacity: 1; }
+      80% { transform: translateY(-5px) scale(0.95); }
+      100% { transform: translateY(0) scale(1); }
+    }
+
+    /* Tangyuan Visuals (Replaces Capsule) */
+    .capsule-top {
+      width: 100%; height: 50%;
+      background: #FDFDFD;
+      border-radius: 50px 50px 0 0;
+      position: absolute;
+      top: 0; left: 0;
+      z-index: 2;
+      transition: transform 0.4s ease;
+      /* Soft white dough shadow */
+      box-shadow: 
+        inset -5px -2px 10px rgba(0,0,0,0.05), 
+        inset 5px 5px 15px rgba(255,255,255,0.8);
+    }
+    .capsule-bottom {
+      width: 100%; height: 50%;
+      background: #FDFDFD;
+      border-radius: 0 0 50px 50px;
+      position: absolute;
+      bottom: 0; left: 0;
+      z-index: 2;
+      transition: transform 0.4s ease;
+      box-shadow: 
+        inset -5px -5px 10px rgba(0,0,0,0.05),
+        inset 5px 2px 10px rgba(255,255,255,0.5);
+    }
+
+    /* Capsule Content (Hidden inside - The Filling) */
+    .capsule-content {
+      position: absolute;
+      top: 15%; left: 15%;
+      width: 70%; height: 70%;
+      background: #333; /* Dark sesame filling default */
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 1;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.4s ease;
+      padding: 5px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+      color: #fff;
+    }
+    
+    .capsule-content .icon { font-size: 20px; margin-bottom: 2px; }
+    .capsule-content .label { font-size: 8px; color: rgba(255,255,255,0.7); margin-bottom: 1px; }
+    .capsule-content .text { font-size: 12px; color: #fff; font-weight: bold; }
+
+    /* Opened State */
+    .capsule.opened .capsule-top { transform: translateY(-35px) rotate(-10deg); opacity: 0.9; }
+    .capsule.opened .capsule-bottom { transform: translateY(35px) rotate(5deg); opacity: 0.9; }
+    .capsule.opened .capsule-content { opacity: 1; transform: scale(1.1); z-index: 3; }
+    .capsule.opened { cursor: default; pointer-events: none; }
+
+    /* Colors for different Tangyuan fillings/flavors */
+    /* Horse: Sakura (Pinkish) */
+    .capsule.c1 .capsule-top, .capsule.c1 .capsule-bottom { background: radial-gradient(circle at 30% 30%, #FFF0F5, #FFE4E1); }
+    .capsule.c1 .capsule-content { background: #D81B60; } /* Red Bean filling */
+
+    /* Domain: Matcha (Greenish) */
+    .capsule.c2 .capsule-top, .capsule.c2 .capsule-bottom { background: radial-gradient(circle at 30% 30%, #F1F8E9, #DCEDC8); }
+    .capsule.c2 .capsule-content { background: #2E7D32; } /* Matcha filling */
+
+    /* Blessing: Sesame/Plain (White) */
+    .capsule.c3 .capsule-top, .capsule.c3 .capsule-bottom { background: radial-gradient(circle at 30% 30%, #FAFAFA, #EEEEEE); }
+    .capsule.c3 .capsule-content { background: #212121; } /* Black Sesame filling */
+    
+    .instruction-text {
+      text-align: center;
+      color: var(--gold-primary);
+      font-size: 12px;
+      margin-top: 10px;
+      opacity: 0.8;
+      display: none; /* Hidden by default, shown by startDraw */
+      animation: pulse-text 2s infinite;
+    }
+    @keyframes pulse-text { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+
+    /* Hide original cards */
+    .cards-section { display: none !important; }
+
+
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+    .card-face {
+      position: absolute;
+      width: 100%; height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* Card front (before flip) */
+    .card-front {
+      background: linear-gradient(145deg, var(--red-primary), var(--red-dark));
+      border: 2px solid var(--gold-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .card-front::before {
+      content: '';
+      position: absolute;
+      top: 8px; left: 8px; right: 8px; bottom: 8px;
+      border: 1px solid rgba(212, 168, 67, 0.3);
+      border-radius: 8px;
+    }
+    .card-front .card-pattern {
+      font-size: 36px;
+      opacity: 0.9;
+    }
+    .card-front .card-label-text {
+      font-size: 11px;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+      opacity: 0.7;
+    }
+    .card-column-label {
+      text-align: center;
+      font-size: 11px;
+      color: var(--gold-primary);
+      margin-top: 8px;
+      opacity: 0.6;
+    }
+
+    /* Card back (after flip) */
+    .card-back {
+      background: linear-gradient(145deg, var(--cream), #fff);
+      border: 2px solid var(--gold-primary);
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 8px;
+      text-align: center;
+    }
+    .card-back .horse-emoji {
+      font-size: 40px;
+      margin-bottom: 6px;
+    }
+    .card-back .horse-name {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--red-primary);
+      margin-bottom: 4px;
+    }
+    .card-back .horse-desc {
+      font-size: 10px;
+      color: #666;
+      line-height: 1.4;
+    }
+    .card-back .domain-text {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--red-primary);
+    }
+    .card-back .domain-emoji {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    .card-back .blessing-text {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--red-dark);
+      writing-mode: vertical-rl;
+      letter-spacing: 4px;
+    }
+
+    /* Upload Section */
+    .upload-container {
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: center;
+    }
+    .upload-box {
+      width: 120px;
+      height: 120px;
+      border: 2px dashed var(--gold-primary);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: rgba(255, 248, 231, 0.05);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .upload-box:active { transform: scale(0.95); background: rgba(255, 248, 231, 0.1); }
+    .upload-icon { font-size: 32px; margin-bottom: 4px; }
+    .upload-text { font-size: 10px; color: var(--gold-primary); text-align: center; line-height: 1.4; }
+    
+    .image-preview {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 5;
+      border-radius: 50%;
+    }
+    .image-preview.show { opacity: 1; }
+
+    .upload-status {
+      text-align: center;
+      font-size: 12px;
+      color: var(--gold-light);
+      height: 20px;
+      margin-bottom: 12px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .upload-status.visible { opacity: 1; }
+    .upload-status.analyzing::after {
+      content: '...';
+      animation: dots 1.5s infinite;
+    }
+    @keyframes dots {
+      0%, 20% { content: '.'; }
+      40% { content: '..'; }
+      60%, 100% { content: '...'; }
+    }
+
+    /* Result area */
+    .result-section {
+      margin-top: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+      perspective: 1000px; /* Add perspective for 3D tilt */
+      pointer-events: none; /* Prevent clicks when hidden */
+    }
+    .result-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto; /* Enable clicks when visible */
+    }
+
+    /* Greeting card (3D Tilt Container) */
+    .greeting-card {
+      background: linear-gradient(135deg, #FFF8E7, #FFF5E0);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      position: relative;
+      border: 3px solid var(--gold-primary);
+      box-shadow:
+        0 10px 30px rgba(196, 30, 36, 0.3),
+        inset 0 0 30px rgba(212, 168, 67, 0.1);
+      transform-style: preserve-3d;
+      transition: transform 0.1s ease-out; /* Smooth movement */
+      will-change: transform;
+    }
+    
+    /* Inner Elements (Pop out) */
+    .greeting-card .card-horse-img,
+    .greeting-card .ai-image-container,
+    .greeting-card .card-blessing,
+    .greeting-card .card-domain,
+    .greeting-card .card-message,
+    .greeting-card .ai-badge {
+      transform: translateZ(20px); /* Pop out effect */
+      transition: transform 0.1s ease-out;
+    }
+
+    .greeting-card .ai-image-container {
+      transform: translateZ(40px); /* Image pops out more */
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2); /* Enhanced shadow for depth */
+    }
+
+    /* Parallax Image Movement */
+    .ai-generated-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.5s ease, transform 0.1s ease-out;
+      transform: scale(1.1); /* Zoom in slightly to allow panning */
+    }
+
+    /* Keep existing styles */
+    .greeting-card::before {
+      content: '';
+      position: absolute;
+      top: 10px; left: 10px; right: 10px; bottom: 10px;
+      border: 1px dashed var(--gold-primary);
+      border-radius: 10px;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .greeting-card .card-horse-img {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 16px;
+      background: linear-gradient(135deg, var(--red-light), var(--red-primary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      border: 3px solid var(--gold-primary);
+      box-shadow: 0 4px 15px rgba(196, 30, 36, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+    .greeting-card .card-blessing {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--red-primary);
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .greeting-card .card-domain {
+      font-size: 15px;
+      color: var(--gold-dark);
+      font-weight: 500;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .greeting-card .card-message {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+    }
+    .greeting-card .card-year-stamp {
+      margin-top: 16px;
+      font-family: 'Noto Serif SC', serif;
+      font-size: 12px;
+      color: var(--red-primary);
+      opacity: 0.5;
+      position: relative;
+      z-index: 1;
+    }
+    .ai-badge {
+      display: inline-block;
+      background: rgba(196, 30, 36, 0.1);
+      color: var(--red-primary);
+      font-size: 10px;
+      padding: 2px 10px;
+      border-radius: 10px;
+      margin-top: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ai-image-container {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 16px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid var(--gold-primary);
+      box-shadow: 0 4px 15px rgba(196, 30, 36, 0.3);
+      background: linear-gradient(135deg, #f5f5f5, #fff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ai-generated-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .ai-generated-image.loaded {
+      opacity: 1;
+    }
+
+    /* Loading spinner for AI image */
+    .ai-image-container::before {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border: 3px solid rgba(196, 30, 36, 0.2);
+      border-top-color: var(--red-primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      z-index: 0;
+    }
+
+    .ai-image-container:has(.ai-generated-image.loaded)::before {
+      display: none;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Buttons */
+    .buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.5s ease;
+    }
+    .buttons.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .btn {
+      flex: 1;
+      padding: 14px 16px;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'Noto Sans SC', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn:active { transform: scale(0.96); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--red-primary), var(--red-dark));
+      color: var(--gold-light);
+      box-shadow: 0 4px 15px rgba(196, 30, 36, 0.4);
+    }
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+      color: white;
+      box-shadow: 0 4px 15px rgba(212, 168, 67, 0.3);
+    }
+
+    /* Start button */
+    .start-section {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .btn-start {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 40px;
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-light), var(--gold-primary));
+      background-size: 200% 200%;
+      animation: shimmer 3s ease infinite;
+      color: var(--red-dark);
+      border: none;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 900;
+      font-family: 'Noto Serif SC', serif;
+      cursor: pointer;
+      box-shadow:
+        0 4px 20px rgba(212, 168, 67, 0.5),
+        0 0 40px rgba(212, 168, 67, 0.2);
+      transition: all 0.3s ease;
+      letter-spacing: 4px;
+    }
+    .btn-start:hover { transform: scale(1.05); }
+    .btn-start:active { transform: scale(0.98); }
+    .btn-start.hidden { display: none; }
+
+    @keyframes shimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Sparkle animation on cards */
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1) rotate(180deg); }
+    }
+    .sparkle {
+      position: absolute;
+      width: 10px; height: 10px;
+      background: var(--gold-light);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      animation: sparkle 1.5s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Pulse animation for waiting cards */
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 5px rgba(212, 168, 67, 0.3); }
+      50% { box-shadow: 0 0 20px rgba(212, 168, 67, 0.6); }
+    }
+    .card-front { animation: pulse-glow 2s ease-in-out infinite; }
+
+    /* Emoji Rain */
+    .emoji-rain {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      z-index: 150;
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(0,0,0,0.85);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 14px;
+      z-index: 200;
+      transition: transform 0.4s ease;
+      white-space: nowrap;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 30px 0 10px;
+      font-size: 11px;
+      color: rgba(212, 168, 67, 0.3);
+    }
+
+    .card-watermark {
+      font-size: 8px;
+      color: var(--gold-dark);
+      opacity: 0.4;
+      margin-top: 8px;
+      font-family: 'Noto Sans SC', sans-serif;
+      transform: translateZ(10px);
+    }
+
+
+    /* =========================================
+       LANDING PAGE
+       ========================================= */
+    #landing-page {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('bigniudan.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 1000;
+      transition: opacity 0.8s ease;
+    }
+    
+    #landing-page.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .landing-click-zone {
+      position: absolute;
+      top: 0%;
+      left: 10%;
+      width: 40%;
+      height: 60%;
+      /* background: rgba(255, 0, 0, 0.3); /* Debug: Red highlight */ 
+      cursor: pointer;
+      z-index: 1001;
+      animation: pulse-click 2s infinite;
+    }
+    
+    @keyframes pulse-click {
+        0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+        70% { box-shadow: 0 0 0 20px rgba(255, 255, 255, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+    }
+    
+    /* Indicate clickable area subtly */
+    .landing-click-zone::after {
+        content: attr(data-label);
+        position: absolute;
+        top: 50%;
+        right: 10%;
+        transform: translateY(-50%);
+        color: #fff;
+        background: rgba(0,0,0,0.6);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        white-space: nowrap;
+        pointer-events: none;
+    }
+
+    /* Main App Wrapper (Initially Hidden) */
+    #main-app {
+        opacity: 0;
+        transition: opacity 0.8s ease;
+        display: none; /* Hide from layout initially */
+    }
+    #main-app.visible {
+        opacity: 1;
+        display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 360px) {
+      .header h1 { font-size: 34px; }
+      .card-back .blessing-text { font-size: 15px; }
+      .greeting-card .card-blessing { font-size: 24px; }
+    }
+
+    /* Custom Cursor Follower */
+    #cursor-follower {
+      position: fixed;
+      top: 0; left: 0;
+      width: 50px; height: 50px;
+      pointer-events: none;
+      z-index: 9999;
+      display: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease-out; /* Smooth follow lag */
+      filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+    }
+    #cursor-follower img {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold-primary);
+    }
+    
+    /* Hide default cursor when custom is active */
+    body.custom-cursor-active {
+      cursor: none;
+    }
+    body.custom-cursor-active a, 
+    body.custom-cursor-active button, 
+    body.custom-cursor-active .btn,
+    body.custom-cursor-active .upload-box,
+    body.custom-cursor-active .capsule,
+    body.custom-cursor-active .knob-zone {
+      cursor: none;
+    }
+
+    /* Language Switcher */
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1100;
+      display: flex;
+      gap: 8px;
+    }
+    .lang-btn {
+      background: rgba(0,0,0,0.5);
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 4px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: all 0.3s;
+    }
+    .lang-btn.active {
+      background: var(--red-primary);
+      color: #fff;
+      border-color: var(--red-primary);
+      font-weight: bold;
+    }
+
+      position: fixed;
+      top: 10px; right: 10px;
+      width: 60px; height: 60px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid var(--gold-primary);
+      border-radius: 50%;
+      z-index: 900;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: all 0.5s ease;
+    }
+    #floating-avatar img {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    #floating-avatar.visible {
+      display: flex;
+      animation: float-badge 3s ease-in-out infinite;
+    }
+    @keyframes float-badge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div id="cursor-follower"><img src="" id="cursorImg"></div>
+
+<!-- Floating Avatar Badge -->
+<div id="floating-avatar"><img src="" id="floatingAvatarImg"></div>
+
+<!-- Landing Page -->
+<div id="landing-page">
+  <!-- Language Switcher -->
+  <div class="lang-switch">
+      <div class="lang-btn active" onclick="setLanguage('zh')">中文</div>
+      <div class="lang-btn" onclick="setLanguage('en')">English</div>
+  </div>
+  
+  <div class="landing-click-zone" onclick="enterApp()" data-label="👈 点击扭蛋机"></div>
+</div>
+
+<!-- Main App (Wrapped) -->
+<div id="main-app">
+
+<!-- Fireworks Canvas -->
+<canvas id="fireworks-canvas"></canvas>
+
+<!-- Floating Lanterns -->
+<div class="lantern"><div class="lantern-line"></div><div class="lantern-top"></div><div class="lantern-body"></div><div class="lantern-tassel"></div></div>
+<div class="lantern"><div class="lantern-line"></div><div class="lantern-top"></div><div class="lantern-body"></div><div class="lantern-tassel"></div></div>
+<div class="lantern"><div class="lantern-line"></div><div class="lantern-top"></div><div class="lantern-body"></div><div class="lantern-tassel"></div></div>
+<div class="lantern"><div class="lantern-line"></div><div class="lantern-top"></div><div class="lantern-body"></div><div class="lantern-tassel"></div></div>
+<div class="lantern"><div class="lantern-line"></div><div class="lantern-top"></div><div class="lantern-body"></div><div class="lantern-tassel"></div></div>
+<div class="lantern"><div class="lantern-line"></div><div class="lantern-top"></div><div class="lantern-body"></div><div class="lantern-tassel"></div></div>
+<div class="lantern"><div class="lantern-line"></div><div class="lantern-top"></div><div class="lantern-body"></div><div class="lantern-tassel"></div></div>
+<div class="lantern"><div class="lantern-line"></div><div class="lantern-top"></div><div class="lantern-body"></div><div class="lantern-tassel"></div></div>
+<div class="lantern"><div class="lantern-line"></div><div class="lantern-top"></div><div class="lantern-body"></div><div class="lantern-tassel"></div></div>
+<div class="lantern"><div class="lantern-line"></div><div class="lantern-top"></div><div class="lantern-body"></div><div class="lantern-tassel"></div></div>
+<div class="lantern"><div class="lantern-line"></div><div class="lantern-top"></div><div class="lantern-body"></div><div class="lantern-tassel"></div></div>
+<div class="lantern"><div class="lantern-line"></div><div class="lantern-top"></div><div class="lantern-body"></div><div class="lantern-tassel"></div></div>
+
+<div class="container">
+  <!-- Header -->
+  <header class="header">
+    <div class="year-badge">丙午年 2026</div>
+    <h1 data-i18n="header_title">馬年大吉</h1>
+    <p class="subtitle" data-i18n="header_subtitle">扭一扭，扭转乾坤🌀</p>
+  </header>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-icon">&#9830;</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- Upload Section (Moved to Top) -->
+    <div class="start-section" style="margin: 0 0 20px;">
+      <div class="upload-container" id="uploadContainer">
+        <!-- Left: Upload Box -->
+        <div class="upload-box" onclick="document.getElementById('fileInput').click()" id="uploadBox">
+          <div class="upload-icon" id="uploadIcon">&#128247;</div>
+          <div class="upload-text" id="uploadText" data-i18n="upload_text">上传照片<br>定制专属马</div>
+          <img id="imagePreview" class="image-preview" alt="Preview">
+        </div>
+        
+        <!-- Right: Generated Avatar Preview (Hidden initially) -->
+        <div class="upload-box" id="avatarBox" style="display:none; border-style: solid; background: rgba(255,255,255,0.1);">
+           <img id="avatarPreview" class="image-preview" style="opacity:1; object-fit: contain;" alt="AI Horse">
+           <div id="avatarLoading" style="position:absolute; text-align:center; width:100%;">
+             <div style="font-size:20px; margin-bottom:5px;">🎨</div>
+             <div style="font-size:10px; color:var(--gold-dark);" data-i18n="status_analyzing">正在捏马...</div>
+           </div>
+        </div>
+
+        <input type="file" id="fileInput" accept="image/*" onchange="handleImageUpload(this)" style="display: none">
+      </div>
+      
+      <div class="upload-status" id="uploadStatus"></div>
+    </div>
+
+    <!-- Gashapon Machine -->
+    <section class="gashapon-section">
+      <div class="machine-container" id="machineContainer" onclick="turnGashapon()" style="cursor: pointer;">
+        <!-- Replaced Image with Video (Autoplay, Loop, Muted, Playsinline) -->
+        <video 
+          src="machine.mp4" 
+          class="machine-img" 
+          muted 
+          playsinline
+          poster="machine.png"
+          style="pointer-events: none;"
+        ></video>
+        
+        <!-- Label pointing to knob -->
+        <div class="knob-label" data-i18n="knob_label">
+          点击抽取<br>扭转乾坤
+        </div>
+
+        <!-- Clickable Knob Zone (Kept for compatibility, but container is now clickable) -->
+        <div class="knob-zone" id="turnKnob"></div>
+        <!-- Exit Zone -->
+        <div class="exit-zone" id="exitZone"></div>
+      </div>
+
+      <div class="instruction-text" id="instructionText" data-i18n="instruction">点击按钮开启汤圆</div>
+
+      <div class="capsules-tray" id="capsulesTray"></div>
+    </section>
+
+    <!-- Result: Greeting Card / 简笔画 -->
+  <section class="result-section" id="resultSection">
+    <div class="greeting-card" id="greetingCard">
+      <!-- Filled by JS -->
+    </div>
+  </section>
+
+  <!-- Action buttons -->
+  <div class="buttons" id="actionButtons">
+    <button class="btn btn-primary" onclick="playAgain()" data-i18n="btn_again">&#128260; 再来一次</button>
+    <button class="btn btn-secondary" onclick="downloadCard()" data-i18n="btn_save">&#128247; 开心存下照片</button>
+  </div>
+  <div id="homeLink" class="footer" style="padding-top: 10px; display: none;">
+    <div onclick="resetDraw()" style="
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid var(--gold-primary);
+      border-radius: 20px;
+      color: var(--gold-primary);
+      cursor: pointer;
+      font-size: 12px;
+      opacity: 0.8;
+      background: rgba(0,0,0,0.2);
+    " data-i18n="btn_home">
+      &#128247; 更换照片 / 返回首页
+    </div>
+  </div>
+
+  <div class="footer">
+    <span data-i18n="footer_text">2026 馬年大吉 | 扭一扭，扭转乾坤🌀</span><br>
+    github.com/duoduo-weekend-coder
+  </div>
+</div>
+</div> <!-- End of #main-app -->
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+function enterApp() {
+  const landing = document.getElementById('landing-page');
+  const main = document.getElementById('main-app');
+  
+  if (landing && main) {
+    // Fade out landing
+    landing.classList.add('hidden');
+    
+    // Show main app
+    main.classList.add('visible');
+    
+    // Optional: Remove landing from DOM after transition to free memory
+    setTimeout(() => {
+      landing.style.display = 'none';
+      
+      // Auto-play main background music if exists? Or trigger fireworks?
+      // Maybe trigger a small firework to welcome
+      if (typeof launchFireworks === 'function') {
+        launchFireworks();
+      }
+    }, 800);
+  }
+}
+
+// ============================================================
+// I18N & DATA
+// ============================================================
+
+let currentLang = 'zh';
+
+const translations = {
+  zh: {
+    header_title: "馬年大吉",
+    header_subtitle: "扭一扭，扭转乾坤🌀",
+    upload_text: "上传照片<br>定制专属马",
+    status_analyzing: "正在捏马...",
+    status_extracting: "AI正在提取特征...",
+    status_success: "✨ 特征识别成功！<br><span style='font-size:10px; opacity:0.8'>正在生成专属小马...</span>",
+    status_done: "✨ 专属马已诞生！<br><span style='font-size:10px; opacity:0.8'>快去下面扭蛋机扭一扭！</span>",
+    status_fail: "生成失败: ",
+    knob_label: "点击抽取<br>扭转乾坤",
+    instruction_start: "点击扭蛋机抽取运势",
+    instruction_open: "点击按钮开启汤圆",
+    btn_again: "🔄 再来一次",
+    btn_save: "📸 开心存下照片",
+    btn_home: "📷 更换照片 / 返回首页",
+    footer_text: "2026 馬年大吉 | 扭一扭，扭转乾坤🌀",
+    landing_label: "👈 点击扭蛋机",
+    ai_badge_loading: "★ AI正在创作专属画作...",
+    ai_badge_done: "★ AI专属画作✨",
+    ai_badge_fallback: "★ 使用表情符号展示",
+    toast_generating: "正在生成美图...",
+    toast_saved: "✨ 照片已保存到相册！",
+    toast_failed: "保存失败，请手动截图保存哦",
+    toast_copied: "已复制到剪贴板，快去分享吧！",
+    toast_copy_fail: "长按复制分享给好友",
+    share_title: "2026 马年开运签",
+    share_msg_intro: "🐴 2026马年开运签 🧧\n\n我抽到了「{horse}」！\n领域：{domain} {icon}\n祝福：{blessing}\n\n{fortune}\n\n快来抽你的马年运势签！",
+    year_stamp: "丙午年 | 2026 新春"
+  },
+  en: {
+    header_title: "Year of the Horse",
+    header_subtitle: "Twist to Turn Things Around 🌀",
+    upload_text: "Upload Photo<br>Custom Horse",
+    status_analyzing: "Creating...",
+    status_extracting: "AI analyzing features...",
+    status_success: "✨ Features identified!<br><span style='font-size:10px; opacity:0.8'>Creating your unique horse...</span>",
+    status_done: "✨ Your horse is ready!<br><span style='font-size:10px; opacity:0.8'>Twist the machine below!</span>",
+    status_fail: "Failed: ",
+    knob_label: "Click to Draw<br>Turn Fate",
+    instruction_start: "Click machine to draw",
+    instruction_open: "Click button to open",
+    btn_again: "🔄 Play Again",
+    btn_save: "📸 Save Photo",
+    btn_home: "📷 Change Photo / Home",
+    footer_text: "2026 Year of the Horse | Twist of Fate 🌀",
+    landing_label: "👈 Click Machine",
+    ai_badge_loading: "★ AI painting your art...",
+    ai_badge_done: "★ AI Exclusive Art✨",
+    ai_badge_fallback: "★ Using Emoji Display",
+    toast_generating: "Generating image...",
+    toast_saved: "✨ Photo saved to album!",
+    toast_failed: "Save failed, please screenshot manually",
+    toast_copied: "Copied to clipboard!",
+    toast_copy_fail: "Long press to copy",
+    share_title: "2026 Horse Year Fortune",
+    share_msg_intro: "🐴 2026 Fortune 🧧\n\nI got 「{horse}」!\nDomain: {domain} {icon}\nBlessing: {blessing}\n\n{fortune}\n\nCheck your fortune now!",
+    year_stamp: "Year of the Horse | 2026"
+  }
+};
+
+function setLanguage(lang) {
+  currentLang = lang;
+  
+  // Update Buttons UI
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    if (btn.textContent.trim().toLowerCase() === (lang === 'zh' ? '中文' : 'english')) {
+       btn.classList.add('active');
+    } else {
+       btn.classList.remove('active');
+    }
+  });
+
+  // Update Static Text
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+
+  // Update Landing Label (Pseudo-element attr)
+  const landingZone = document.querySelector('.landing-click-zone');
+  if (landingZone) {
+    landingZone.setAttribute('data-label', translations[lang].landing_label);
+  }
+
+  // Update JS-driven UI if visible
+  const instruction = document.getElementById('instructionText');
+  if (instruction && instruction.style.display !== 'none') {
+      instruction.textContent = isDrawing ? translations[lang].instruction_open : translations[lang].instruction_start;
+  }
+}
+
+// Data Arrays with Dual Language Support
+const horses = [
+  { id: 1, name: '文艺马', name_en: 'Artsy Horse', emoji: '&#127912;', icon: '🎨', desc: '才华横溢，灵感不断', desc_en: 'Overflowing with talent and inspiration', color: '#9B59B6' },
+  { id: 2, name: '学霸马', name_en: 'Scholar Horse', emoji: '&#128218;', icon: '📚', desc: '智慧过人，金榜题名', desc_en: 'Super smart, top of the class', color: '#3498DB' },
+  { id: 3, name: '运动马', name_en: 'Sporty Horse', emoji: '&#127941;', icon: '🏅', desc: '活力满满，健步如飞', desc_en: 'Full of energy, swift as the wind', color: '#E67E22' },
+  { id: 4, name: '吃货马', name_en: 'Foodie Horse', emoji: '&#127838;', icon: '🍞', desc: '享尽美食，人生美味', desc_en: 'Enjoys every delicious moment', color: '#E74C3C' },
+  { id: 5, name: '睡神马', name_en: 'Sleepy Horse', emoji: '&#128164;', icon: '💤', desc: '安睡无忧，好梦连连', desc_en: 'Peaceful sleep, sweet dreams', color: '#1ABC9C' },
+  { id: 6, name: '社牛马', name_en: 'Social Horse', emoji: '&#127908;', icon: '🎤', desc: '人见人爱，朋友遍天下', desc_en: 'Loved by all, friends everywhere', color: '#F39C12' },
+  { id: 7, name: '打工马', name_en: 'Worker Horse', emoji: '&#128188;', icon: '💼', desc: '勤恳踏实，步步高升', desc_en: 'Hardworking, step by step success', color: '#34495E' },
+  { id: 8, name: '老板马', name_en: 'Boss Horse', emoji: '&#128176;', icon: '💰', desc: '掌控全局，财源广进', desc_en: 'In control, wealth rolling in', color: '#D4A843' },
+  { id: 9, name: '佛系马', name_en: 'Zen Horse', emoji: '&#129494;', icon: '🧘', desc: '心如止水，随遇而安', desc_en: 'Calm mind, go with the flow', color: '#2ECC71' },
+  { id: 10, name: '卷王马', name_en: 'Hustler Horse', emoji: '&#128170;', icon: '💪', desc: '全力以赴，无人能敌', desc_en: 'All in, unbeatable spirit', color: '#C0392B' },
+  { id: 11, name: '摸鱼马', name_en: 'Slacker Horse', emoji: '&#127907;', icon: '🎣', desc: '悠然自得，智慧生活', desc_en: 'Relaxed, working smart not hard', color: '#16A085' },
+  { id: 12, name: '锦鲤马', name_en: 'Lucky Horse', emoji: '&#127808;', icon: '🍀', desc: '好运连连，万事如意', desc_en: 'Endless luck, everything goes well', color: '#FF6B6B' },
+  { id: 13, name: '养生马', name_en: 'Wellness Horse', emoji: '&#127861;', icon: '🍵', desc: '身心康泰，长寿百岁', desc_en: 'Healthy body and mind', color: '#8E44AD' },
+  { id: 14, name: '旅行马', name_en: 'Traveler Horse', emoji: '&#127757;', icon: '🌍', desc: '走遍四方，见多识广', desc_en: 'Travels far, sees the world', color: '#2980B9' },
+  { id: 15, name: '追星马', name_en: 'Fan Horse', emoji: '&#11088;', icon: '⭐', desc: '热情似火，梦想成真', desc_en: 'Passionate, dreams come true', color: '#E91E63' },
+  { id: 16, name: '技术马', name_en: 'Techie Horse', emoji: '&#128187;', icon: '💻', desc: '代码如诗，改变世界', desc_en: 'Code is poetry, changing the world', color: '#607D8B' },
+  { id: 17, name: '时尚马', name_en: 'Fashion Horse', emoji: '&#128085;', icon: '👕', desc: '走在潮流前沿，引领风尚', desc_en: 'Trendsetter, leading style', color: '#FF9800' },
+  { id: 18, name: '音乐马', name_en: 'Musical Horse', emoji: '&#127925;', icon: '🎵', desc: '旋律动人，余音绕梁', desc_en: 'Beautiful melodies everywhere', color: '#673AB7' },
+  { id: 19, name: '恋爱马', name_en: 'Romantic Horse', emoji: '&#128149;', icon: '💕', desc: '甜蜜幸福，天赐良缘', desc_en: 'Sweet love, perfect match', color: '#E91E63' },
+  { id: 20, name: '暴富马', name_en: 'Rich Horse', emoji: '&#129297;', icon: '🤑', desc: '财运亨通，一夜暴富', desc_en: 'Wealth booming, rich overnight', color: '#FFD700' },
+];
+
+const domains = [
+  { name: '事业', name_en: 'Career', emoji: '&#128188;', icon: '💼', desc: '职场运势大开', desc_en: 'Career taking off' },
+  { name: '爱情', name_en: 'Love', emoji: '&#128152;', icon: '💘', desc: '桃花运旺盛', desc_en: 'Romance blooming' },
+  { name: '健康', name_en: 'Health', emoji: '&#128154;', icon: '💚', desc: '身体倍儿棒', desc_en: 'Strong and healthy' },
+  { name: '副业', name_en: 'Side Hustle', emoji: '&#128640;', icon: '🚀', desc: '副业蒸蒸日上', desc_en: 'Side projects booming' },
+  { name: '创业', name_en: 'Startup', emoji: '&#128161;', icon: '💡', desc: '创业灵感涌现', desc_en: 'Ideas flowing' },
+  { name: '学业', name_en: 'Study', emoji: '&#127891;', icon: '🎓', desc: '学业有成', desc_en: 'Academic success' },
+  { name: '财运', name_en: 'Wealth', emoji: '&#128178;', icon: '💲', desc: '财源滚滚来', desc_en: 'Money rolling in' },
+  { name: '人际', name_en: 'Social', emoji: '&#129309;', icon: '🤝', desc: '贵人相助', desc_en: 'Helpful connections' },
+  { name: '旅行', name_en: 'Travel', emoji: '&#9992;&#65039;', icon: '✈️', desc: '说走就走', desc_en: 'Spontaneous trips' },
+  { name: '家庭', name_en: 'Family', emoji: '&#127968;', icon: '🏠', desc: '家和万事兴', desc_en: 'Harmony at home' },
+  { name: '颜值', name_en: 'Beauty', emoji: '&#128132;', icon: '💄', desc: '颜值爆表', desc_en: 'Looking gorgeous' },
+  { name: '摸鱼', name_en: 'Slacking', emoji: '&#128031;', icon: '🐟', desc: '带薪摸鱼', desc_en: 'Relaxing at work' },
+  { name: '技能', name_en: 'Skills', emoji: '&#9889;', icon: '⚡', desc: '技能点满', desc_en: 'Leveling up' },
+  { name: '桃花', name_en: 'Romance', emoji: '&#127800;', icon: '🌸', desc: '桃花朵朵', desc_en: 'Flowers everywhere' },
+  { name: '心态', name_en: 'Mindset', emoji: '&#129494;', icon: '🧘', desc: '心态超稳', desc_en: 'Zen mode on' },
+  { name: '追星', name_en: 'Fandom', emoji: '&#127775;', icon: '🌟', desc: '追星成功', desc_en: 'Idol noticed you' },
+  { name: '铲屎', name_en: 'Pets', emoji: '&#128049;', icon: '🐱', desc: '猫狗双全', desc_en: 'Cats and dogs love' },
+  { name: '干饭', name_en: 'Dining', emoji: '&#127834;', icon: '🍚', desc: '吃喝不愁', desc_en: 'Eating well' },
+  { name: '网感', name_en: 'Influence', emoji: '&#128241;', icon: '📱', desc: '涨粉无数', desc_en: 'Gaining followers' },
+  { name: '上岸', name_en: 'Success', emoji: '&#127754;', icon: '🌊', desc: '一战成硕', desc_en: 'Goals achieved' }
+];
+
+const blessings = [
+  { text: '马到成功', text_en: 'Instant Success', desc: '做什么都成功！', desc_en: 'Success in everything!' },
+  { text: '一马当先', text_en: 'Leading the Way', desc: '领先所有人！', desc_en: 'Ahead of everyone!' },
+  { text: '马上有钱', text_en: 'Instant Wealth', desc: '财富马上到账！', desc_en: 'Money coming now!' },
+  { text: '马上有戏', text_en: 'Something Good', desc: '好事即将发生！', desc_en: 'Good things coming!' },
+  { text: '龙马精神', text_en: 'Boundless Energy', desc: '精力充沛一整年！', desc_en: 'Energetic all year!' },
+  { text: '万马奔腾', text_en: 'Thriving Career', desc: '事业蓬勃发展！', desc_en: 'Booming business!' },
+  { text: '马不停蹄', text_en: 'Non-stop Progress', desc: '前进永不停歇！', desc_en: 'Never stopping!' },
+  { text: '快马加鞭', text_en: 'Full Speed', desc: '加速实现目标！', desc_en: 'Accelerating goals!' },
+  { text: '马上暴富', text_en: 'Get Rich Quick', desc: '暴富就在眼前！', desc_en: 'Rich right now!' },
+  { text: '马上幸福', text_en: 'Instant Happiness', desc: '幸福触手可及！', desc_en: 'Happiness is here!' },
+  { text: '天马行空', text_en: 'Wild Imagination', desc: '想象力无限大！', desc_en: 'Limitless creativity!' },
+  { text: '马上加薪', text_en: 'Salary Raise', desc: '升职加薪稳了！', desc_en: 'Promotion secured!' },
+  { text: '马上脱单', text_en: 'Find Love', desc: '告别单身时代！', desc_en: 'Love is found!' },
+  { text: '马上变美', text_en: 'Glow Up', desc: '颜值即将巅峰！', desc_en: 'Peak beauty incoming!' },
+  { text: '马上有福', text_en: 'Blessed', desc: '福气满满一整年！', desc_en: 'Full of blessings!' },
+];
+
+// Helper to get localized data
+function getLoc(obj, key) {
+  if (!obj) return "";
+  if (currentLang === 'zh') return obj[key] || obj[key + '_zh'] || "";
+  return obj[key + '_en'] || obj[key] || "";
+}
+
+
+
+// Longer fortunes that combine horse + domain + blessing
+function generateFortune(horse, domain, blessing) {
+  // 1. Define witty comments for specific combinations (Internal keys are based on ZH names)
+  
+  // Strategy: Logic is based on ZH names (IDs), output is selected based on currentLang
+  
+  let commentKey = "generic";
+  
+  // Conflict/Irony: Lazy/Chill horses vs Work/Study domains
+  if (['睡神马', '摸鱼马', '佛系马', '养生马'].includes(horse.name) && 
+      ['学业', '事业', '创业', '上岸', '技能', '卷王'].includes(domain.name)) {
+    commentKey = "irony";
+  }
+  
+  // Conflict/Irony: Intense horses vs Chill domains
+  else if (['卷王马', '打工马', '老板马', '技术马'].includes(horse.name) && 
+           ['摸鱼', '心态', '干饭', '旅行', '铲屎', '睡眠'].includes(domain.name)) {
+    commentKey = "chill";
+  }
+
+  // Synergy: Foodie + Food
+  else if (horse.name === '吃货马' && ['干饭', '健康', '养生'].includes(domain.name)) {
+    commentKey = "foodie";
+  }
+  
+  // Synergy: Rich + Money
+  else if (['暴富马', '老板马'].includes(horse.name) && ['财运', '副业', '创业'].includes(domain.name)) {
+    commentKey = "money";
+  }
+
+  // Synergy: Social + People
+  else if (['社牛马', '人际'].includes(horse.name) && ['人际', '桃花', '脱单'].includes(domain.name)) {
+    commentKey = "social";
+  }
+  
+  // Synergy: Slacking + Slacking
+  else if (horse.name === '摸鱼马' && domain.name === '摸鱼') {
+    commentKey = "slacking";
+  }
+
+  // --- Quote Dictionaries ---
+  const quotes = {
+    zh: {
+      irony: [
+        "这反差萌绝了！要在休息中寻找灵感，躺赢才是最高境界！",
+        "虽然听起来有点累，但凭你的智慧，肯定能摸着鱼把事办了！",
+        "别慌，休息是为了走更长远的路（或者找个捷径）！",
+        "梦里什么都有... 醒来记得把梦里的答案写卷子上！",
+        "以静制动，用最少的力气拿最大的成果，不愧是你！"
+      ],
+      chill: [
+        "连放松都要争第一？这种拼搏精神也是没谁了！",
+        "是时候放下KPI了！给紧绷的神经放个长假吧！",
+        "工作狂的最高境界就是：连玩都能玩出专业水准！",
+        "别卷了别卷了，再卷连饭都吃不香了！听我的，躺平一会！",
+        "即使是超人也要充电，何况是马呢？好好享受这一刻！"
+      ],
+      foodie: ["吃饱了才有力气减肥... 啊不对，是吃饱了才有力气生活！"],
+      money: ["钱就像长了眼睛一样往你口袋里钻！挡都挡不住！"],
+      social: ["凭借你的社交恐怖分子属性，这领域简直是统御级表现！"],
+      slacking: ["这是什么神仙运气？奉旨摸鱼，爽翻天！老板都得夸你会劳逸结合！"],
+      generic: [
+        `这就叫专业对口！${horse.name}的特质在${domain.name}里简直如鱼得水！`,
+        `这就是传说中的天选之马！在${domain.name}方面运气爆棚！`,
+        `既然抽到了这张签，那就大胆去冲！${domain.name}运势稳得一批！`,
+        `保持${horse.name}的本色，${domain.name}的好运自然会找上门来！`,
+        `没什么好担心的，${blessing.text}就是你今年的主旋律！`
+      ],
+      intros: [
+        `哎哟不错哦！2026年你竟然是「${horse.name}」！`,
+        `哇！命中注定！本命「${horse.name}」上线！`,
+        `天呐！抽到了超有趣的「${horse.name}」！`,
+        `恭喜恭喜！你的守护神是「${horse.name}」！`,
+        `太棒了！今年将是「${horse.name}」的一年！`
+      ],
+      summaries: ["总之就是", "一言以蔽之", "简单来说", "总结一句", "划重点", "核心奥义是", "送你一句话", "记住这句真言", "这意味着"]
+    },
+    en: {
+      irony: [
+        "What a contrast! Finding inspiration in rest is the ultimate winning strategy!",
+        "It sounds tiring, but with your wisdom, you'll slack your way to success!",
+        "Don't panic! Rest is for walking a longer journey (or finding a shortcut)!",
+        "Dreams have everything... just remember to write the answers down when you wake up!",
+        "Winning by doing the least amount of work? That's your style!"
+      ],
+      chill: [
+        "Even when relaxing, you want to be number one? That's some spirit!",
+        "Time to drop the KPIs! Give your nerves a long vacation!",
+        "The highest level of a workaholic: playing with professional standards!",
+        "Stop the hustle! If you hustle too much, food won't even taste good. Just chill!",
+        "Even superheroes need to recharge. Enjoy this moment!"
+      ],
+      foodie: ["Eat well to have the strength to... live life to the fullest!"],
+      money: ["Money is finding its way into your pockets like it has eyes! Unstoppable!"],
+      social: ["With your social butterfly skills, you will dominate this domain!"],
+      slacking: ["What luck! Official permission to slack off! Even your boss will praise your work-life balance!"],
+      generic: [
+        `Perfect match! The ${getLoc(horse, 'name')} fits perfectly in ${getLoc(domain, 'name')}!`,
+        `You are the chosen one! Luck is exploding in ${getLoc(domain, 'name')}!`,
+        `Since you drew this, go for it! Your ${getLoc(domain, 'name')} luck is solid!`,
+        `Keep your ${getLoc(horse, 'name')} spirit, and good luck in ${getLoc(domain, 'name')} will follow!`,
+        `No worries, ${getLoc(blessing, 'text')} is your main theme this year!`
+      ],
+      intros: [
+        `Wow! In 2026 you are the 「${getLoc(horse, 'name')}」!`,
+        `Destiny calls! Your spirit horse is 「${getLoc(horse, 'name')}」!`,
+        `OMG! You drew the interesting 「${getLoc(horse, 'name')}」!`,
+        `Congrats! Your guardian is the 「${getLoc(horse, 'name')}」!`,
+        `Awesome! This year belongs to the 「${getLoc(horse, 'name')}」!`
+      ],
+      summaries: ["In short", "Simply put", "Basically", "The bottom line", "Key point", "The core message", "A word for you", "Remember this", "This means"]
+    }
+  };
+
+  // Select Quote
+  const langQuotes = quotes[currentLang];
+  const selectedQuotes = langQuotes[commentKey] || langQuotes.generic;
+  const comment = selectedQuotes[Math.floor(Math.random() * selectedQuotes.length)];
+  
+  const intro = langQuotes.intros[Math.floor(Math.random() * langQuotes.intros.length)];
+  const summary = langQuotes.summaries[Math.floor(Math.random() * langQuotes.summaries.length)];
+
+  return `${intro} ${comment} ${summary}: ${getLoc(blessing, 'text')}!`;
+}
+
+// Generate AI image prompt based on fortune
+function generateImagePrompt(horse, domain, blessing) {
+  const domainVisuals = {
+    '事业': 'modern 3D Pixar-style office scene with desks, computers, and glass windows',
+    '爱情': 'romantic 3D Pixar-style garden scene with blooming flowers, heart shapes, and soft pink lighting',
+    '健康': 'sunny 3D Pixar-style park scene with vibrant green grass, trees, and morning sunlight',
+    '副业': 'cozy 3D Pixar-style home workspace scene with a laptop, coffee, and creative tools',
+    '创业': 'futuristic 3D Pixar-style startup studio scene with whiteboards, lightbulbs, and innovation symbols',
+    '学业': 'magical 3D Pixar-style library scene with tall bookshelves, scrolls, and floating stationery',
+    '财运': 'luxurious 3D Pixar-style treasure vault scene with piles of gold coins and sparkling gems',
+    '人际': 'bustling 3D Pixar-style cafe terrace scene with tables, chairs, and a warm inviting atmosphere',
+    '旅行': 'beautiful 3D Pixar-style tropical beach scene with blue ocean, white sand, and palm trees',
+    '家庭': 'warm 3D Pixar-style family living room scene with comfortable furniture and festive decorations',
+    '颜值': 'glamorous 3D Pixar-style vanity room scene with lighted mirrors, makeup brushes, and soft flattering lighting',
+    '摸鱼': 'relaxed 3D Pixar-style lounge scene with a bean bag, snacks, a gaming console, and a cozy blanket',
+    '技能': 'futuristic 3D Pixar-style training dojo scene with glowing holograms, floating data screens, and equipment',
+    '桃花': 'dreamy 3D Pixar-style cherry blossom park scene with falling pink petals and a romantic bridge',
+    '心态': 'peaceful 3D Pixar-style zen garden scene with raked sand patterns, smooth stones, and bamboo',
+    '追星': 'concert-like 3D Pixar-style stage scene with spotlights, confetti, and glowing light sticks',
+    '铲屎': 'cozy 3D Pixar-style pet room scene with cat towers, dog beds, yarn balls, and toys everywhere',
+    '干饭': 'vibrant 3D Pixar-style banquet table scene filled with delicious steaming dishes, desserts, and drinks',
+    '网感': 'modern 3D Pixar-style streaming studio scene with ring lights, cameras, microphones, and a "Live" sign',
+    '上岸': 'quiet 3D Pixar-style study room scene with stacks of books, a focused desk lamp, and a certificate of success'
+  };
+
+  const horseTraits = {
+    '文艺马': 'wearing a colorful beret and holding a paintbrush',
+    '学霸马': 'wearing round glasses and a graduation cap',
+    '运动马': 'wearing a headband and sweatbands',
+    '吃货马': 'holding a delicious steamed bun',
+    '睡神马': 'wearing a cute nightcap and holding a pillow',
+    '社牛马': 'holding a microphone with a confident smile',
+    '打工马': 'wearing a tiny tie and carrying a briefcase',
+    '老板马': 'wearing a golden crown and sunglasses',
+    '佛系马': 'sitting in a lotus position with a peaceful expression',
+    '卷王马': 'wearing a headband that says "Must Win" and flexing',
+    '摸鱼马': 'holding a fishing rod and looking relaxed',
+    '锦鲤马': 'shiny golden texture with lucky clover accessories',
+    '养生马': 'holding a cup of tea with steam rising',
+    '旅行马': 'wearing a backpack and a camera',
+    '追星马': 'holding light sticks and wearing star-shaped glasses',
+    '技术马': 'wearing a hoodie and typing on a holographic keyboard',
+    '时尚马': 'wearing trendy oversized sunglasses and a scarf',
+    '音乐马': 'wearing headphones and holding a musical note',
+    '恋爱马': 'surrounded by floating little hearts',
+    '暴富马': 'holding a large golden ingot'
+  };
+
+  const festiveProps = [
+     'holding a red paper lantern',
+     'holding a golden ingot',
+     'holding a "Fu" (Fortune) character scroll',
+     'holding a firecracker',
+     'holding a traditional fan',
+     'surrounded by falling cherry blossoms',
+     'holding a bowl of Tangyuan'
+  ];
+  // Pick a random prop to add variety if the horse doesn't already have a strong holding action
+  const randomProp = festiveProps[Math.floor(Math.random() * festiveProps.length)];
+
+  const visualDomain = domainVisuals[domain.name] || `3D Pixar-style ${domain.name} scene`;
+  
+  // Custom Logic (If Uploaded -> Generate Human Character)
+  let visualSubject = "";
+  if (horse.isCustom) {
+    // Force the character description
+    visualSubject = `a cute 3D clay art style horse character, ${horse.visual_traits}. The character is ${randomProp}. Cute 3D rendering, expressive face, big eyes, Pixar style.`;
+  } else {
+    // Avoid double "holding"
+    let trait = horseTraits[horse.name] || horse.desc;
+    if (trait.includes('holding') || trait.includes('carrying')) {
+         visualSubject = `a cute 3D clay art style horse character (${trait})`;
+    } else {
+         visualSubject = `a cute 3D clay art style horse character (${trait}) ${randomProp}`;
+    }
+  }
+
+  const finalPrompt = `A high-quality 3D render of ${visualSubject}. The character is placed in a ${visualDomain}. The background is rendered in a high-quality Pixar animation style with depth of field and volumetric lighting. The scene includes subtle festive decorations like red lanterns (plain red, no text). IMPORTANT: Do not generate any Chinese characters. If text appears in the background (e.g. on signs or banners), use English words like "2026", "LUCK", "JOY" or "CNY". The overall image is bright, colorful, and looks like a movie frame. 8k resolution, 3D render, cute, festive, best quality.`;
+  
+  console.log("Generative Image Prompt:", finalPrompt);
+  return finalPrompt;
+}
+
+
+// ============================================================
+// STATE
+// ============================================================
+let currentHorse = null;
+let currentDomain = null;
+let currentBlessing = null;
+let isDrawing = false;
+let customHorse = null; // Store user's custom horse
+
+// ============================================================
+// IMAGE UPLOAD & ANALYSIS
+// ============================================================
+
+function handleImageUpload(input) {
+  if (input.files && input.files[0]) {
+    const file = input.files[0];
+    console.log("File selected:", file.name, file.size); // Debug
+
+    const status = document.getElementById('uploadStatus');
+
+
+    // Update Upload Box
+    document.getElementById('uploadIcon').style.opacity = '0';
+    document.getElementById('uploadText').style.opacity = '0';
+    
+    const img = document.getElementById('imagePreview');
+    const objectUrl = URL.createObjectURL(file);
+    img.src = objectUrl;
+    img.onload = () => {
+      URL.revokeObjectURL(objectUrl);
+      img.classList.add('show');
+    };
+
+    // Show Avatar Box
+    const avatarBox = document.getElementById('avatarBox');
+    avatarBox.style.display = 'flex';
+    document.getElementById('avatarPreview').src = '';
+    document.getElementById('avatarLoading').style.display = 'block';
+
+    // Status: Analyzing
+    status.textContent = 'AI正在提取特征...';
+    status.className = 'upload-status visible analyzing';
+    
+    // Disable interactions
+    const uploadBox = document.getElementById('uploadBox');
+    if(uploadBox) uploadBox.style.pointerEvents = 'none';
+    const knob = document.getElementById('turnKnob');
+    if(knob) knob.style.pointerEvents = 'none';
+
+    // Process
+    convertToBase64(file).then(base64 => {
+      console.log("Base64 converted, length:", base64.length); // Debug
+      return analyzeImageWithAI(base64);
+    }).then(features => {
+      console.log("Features received:", features); // Debug
+      
+      customHorse = {
+        id: 999,
+        name: '专属马',
+        emoji: '&#128100;',
+        icon: '🐴',
+        desc: features.short_desc,
+        visual_traits: features.visual_prompt,
+        isCustom: true
+      };
+
+      // Status: Generating Avatar
+      status.innerHTML = `✨ 特征识别成功！<br><span style="font-size:10px; opacity:0.8">正在生成专属小马...</span>`;
+      
+      // Generate the Horse Avatar
+      return generateAvatar(features.visual_prompt);
+
+    }).then(avatarUrl => {
+      
+      // Update Avatar Box
+      if (avatarUrl) {
+        document.getElementById('avatarLoading').style.display = 'none';
+        document.getElementById('avatarPreview').src = avatarUrl;
+        
+        status.innerHTML = `✨ 专属马已诞生！<br><span style="font-size:10px; opacity:0.8">快去下面扭蛋机扭一扭！</span>`;
+        
+        // --- ADDED: Set up Custom Cursor ---
+        const cursor = document.getElementById('cursor-follower');
+        const cursorImg = document.getElementById('cursorImg');
+        const floatingBadge = document.getElementById('floating-avatar');
+        const floatingImg = document.getElementById('floatingAvatarImg');
+        
+        cursorImg.src = avatarUrl;
+        floatingImg.src = avatarUrl;
+        
+        // Show cursor if requested (Optional: Check if device supports hover?)
+        // Assuming user wants it everywhere:
+        if (window.matchMedia('(hover: hover)').matches) {
+           cursor.style.display = 'block';
+           document.body.classList.add('custom-cursor-active');
+           
+           // Follow logic
+           document.addEventListener('mousemove', (e) => {
+             cursor.style.left = e.clientX + 'px';
+             cursor.style.top = e.clientY + 'px';
+           });
+        }
+        
+      } else {
+        throw new Error('Avatar generation failed');
+      }
+
+    }).catch(err => {
+      console.error("Upload process error:", err);
+      status.textContent = `生成失败: ${err.message}`;
+      document.getElementById('avatarBox').style.display = 'none'; // Hide if failed
+      customHorse = null;
+    }).finally(() => {
+      // Re-enable interactions
+      if(uploadBox) uploadBox.style.pointerEvents = 'auto';
+      if(knob) knob.style.pointerEvents = 'auto';
+    });
+  }
+}
+async function generateImage(prompt) {
+  // Use Vercel API endpoint (secure)
+  
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
+
+    const response = await fetch('/api/image', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        prompt: prompt
+      }),
+      signal: controller.signal
+    });
+    
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.data[0].url;
+  } catch (error) {
+    console.error('Image generation failed:', error);
+    return null;
+  }
+}
+// Generate standalone avatar image
+async function generateAvatar(visualTraits) {
+  const prompt = `A cute 3D clay art style horse character, standing on two legs, ${visualTraits}. Simple white studio background. High quality, 8k, Pixar style, soft lighting, cute expression.`;
+  return await generateImage(prompt);
+}
+
+function useTestImage() {
+  const status = document.getElementById('uploadStatus');
+  const img = document.getElementById('imagePreview');
+  const btn = document.getElementById('startBtn');
+
+  // Hardcoded visual traits from your image
+  const visualPrompt = "wearing a white fluffy sherpa jacket, blue denim jeans, brown long hair, round glasses, carrying a brown bag with a blue charm";
+  const shortDesc = "白色毛绒外套女孩";
+
+  // Simulate process
+  document.getElementById('uploadIcon').style.opacity = '0';
+  document.getElementById('uploadText').style.opacity = '0';
+  
+  // Use a placeholder that resembles the style (or just a generic one if unavailable)
+  // Since I can't upload your file, I'll use a data URI placeholder or just text
+  img.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Crect fill='%23FFF8E7' width='800' height='800'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%23C41E24'%3E%F0%9F%90%B4 Test Image%3C/text%3E%3C/svg%3E";
+  img.classList.add('show');
+
+  status.innerHTML = `✨ 测试模式: 已加载特征<br><span style="font-size:10px; opacity:0.8">识别: ${visualPrompt}</span>`;
+  status.className = 'upload-status visible';
+  
+  customHorse = {
+    id: 999,
+    name: '专属马',
+    emoji: '&#128100;',
+    icon: '🐴',
+    desc: shortDesc,
+    visual_traits: visualPrompt,
+    isCustom: true
+  };
+
+  if (btn) btn.textContent = '开启专属运势 (测试版)';
+}
+
+function convertToBase64(file) {
+  return new Promise((resolve, reject) => {
+    // 1. Create an off-screen image to resize
+    const img = new Image();
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      img.src = e.target.result;
+    };
+
+    img.onload = function() {
+      // 2. Resize logic (Aggressive resize to avoid 400 Payload Too Large)
+      const MAX_WIDTH = 512; 
+      const MAX_HEIGHT = 512;
+      let width = img.width;
+      let height = img.height;
+
+      if (width > height) {
+        if (width > MAX_WIDTH) {
+          height *= MAX_WIDTH / width;
+          width = MAX_WIDTH;
+        }
+      } else {
+        if (height > MAX_HEIGHT) {
+          width *= MAX_HEIGHT / height;
+          height = MAX_HEIGHT;
+        }
+      }
+
+      // 3. Draw to canvas
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      // Fill white background just in case of transparency (though we use jpeg)
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(0, 0, width, height);
+      ctx.drawImage(img, 0, 0, width, height);
+
+      // 4. Compress to JPEG (Lower quality to reduce size)
+      const dataUrl = canvas.toDataURL('image/jpeg', 0.6); 
+      resolve(dataUrl);
+    };
+
+    reader.onerror = error => reject(error);
+    reader.readAsDataURL(file);
+  });
+}
+
+// Robust JSON extraction from LLM responses
+function extractJSON(text) {
+  // Try direct parse first
+  try { return JSON.parse(text); } catch(e) {}
+
+  // Strip markdown code fences
+  const stripped = text.replace(/```json\s*/g, '').replace(/```\s*/g, '').trim();
+  try { return JSON.parse(stripped); } catch(e) {}
+
+  // Find first { and last } to extract JSON object from surrounding text
+  const start = stripped.indexOf('{');
+  const end = stripped.lastIndexOf('}');
+  if (start !== -1 && end > start) {
+    try { return JSON.parse(stripped.substring(start, end + 1)); } catch(e) {}
+  }
+
+  return null;
+}
+
+// Validate parsed outfit result has reasonable content
+function isValidOutfit(parsed) {
+  if (!parsed || typeof parsed.short_desc !== 'string' || typeof parsed.visual_prompt !== 'string') return false;
+  // Check short_desc is reasonable Chinese (no garbled Unicode symbols)
+  if (parsed.short_desc.length < 2 || parsed.short_desc.length > 20) return false;
+  // Reject if it contains known garbled Unicode ranges (squared units, bracket pieces, etc.)
+  if (/[\u3300-\u33FF\u2300-\u23FF\u2400-\u243F]/.test(parsed.short_desc)) return false;
+  // Check visual_prompt is not truncated (should end reasonably, not mid-word)
+  if (parsed.visual_prompt.length < 10) return false;
+  return true;
+}
+
+async function analyzeImageWithAI(base64Image) {
+  // Use Vercel API endpoint (secure)
+  
+  try {
+    const response = await fetch('/api/vision', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        base64Image: base64Image
+      })
+    });
+
+    if (!response.ok) {
+        const errBody = await response.text();
+        console.error("API Error Body:", errBody);
+        throw new Error(`Vision API error: ${response.status} - ${errBody}`);
+    }
+
+    const data = await response.json();
+    console.log("Vision API Response:", data); // Debugging
+    let content = data.choices[0].message.content;
+    
+    // Robust JSON extraction
+    const parsed = extractJSON(content);
+    if (parsed && isValidOutfit(parsed)) {
+      return parsed;
+    }
+    
+    console.warn('Vision API returned unparseable or invalid content:', content);
+    throw new Error('Vision response not valid JSON or failed validation');
+  } catch (error) {
+    console.warn('Vision API failed, using predefined lucky outfit:', error);
+    
+    // Predefined lucky outfits — no API call needed, avoids garbled Chinese from LLaMA
+    const luckyOutfits = [
+      { short_desc: '✨ 新春红衣少年', visual_prompt: 'wearing a festive red hoodie with golden dragon embroidery and black jogger pants' },
+      { short_desc: '✨ 锦鲤旗袍女孩', visual_prompt: 'wearing an elegant red qipao dress with golden koi fish patterns and jade earrings' },
+      { short_desc: '✨ 国潮帅气青年', visual_prompt: 'wearing a black bomber jacket with Chinese cloud patterns and ripped blue jeans' },
+      { short_desc: '✨ 福气棉袄达人', visual_prompt: 'wearing a traditional padded tang jacket in bright red with golden buttons and black trousers' },
+      { short_desc: '✨ 金色华服公子', visual_prompt: 'wearing a golden silk mandarin collar shirt with red trim and dark navy pants' },
+      { short_desc: '✨ 甜美汉服仙子', visual_prompt: 'wearing a flowing pink and white hanfu robe with cherry blossom embroidery and a silk sash' },
+      { short_desc: '✨ 潮流虎纹少年', visual_prompt: 'wearing a trendy orange tiger stripe sweater with white sneakers and cargo pants' },
+      { short_desc: '✨ 吉祥如意小姐', visual_prompt: 'wearing a soft cream cashmere sweater with a red lucky knot brooch and a pleated skirt' },
+    ];
+    
+    const outfit = luckyOutfits[Math.floor(Math.random() * luckyOutfits.length)];
+    return outfit;
+  }
+}
+// ============================================================
+// DRAW LOGIC
+// ============================================================
+
+function randomPick(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// GASHAPON LOGIC
+let gashaponTurned = false;
+let capsulesOpened = 0;
+
+function startDraw() {
+  if (isDrawing) return;
+  isDrawing = true;
+
+  // Pick values immediately
+  if (customHorse) {
+    currentHorse = customHorse;
+  } else {
+    currentHorse = randomPick(horses);
+  }
+  currentDomain = randomPick(domains);
+  currentBlessing = randomPick(blessings);
+
+  // UI Updates
+  const startBtn = document.getElementById('startBtn');
+  if(startBtn) startBtn.classList.add('hidden');
+  document.getElementById('uploadContainer').style.display = 'none';
+  document.getElementById('uploadStatus').style.display = 'none';
+  document.getElementById('resultSection').classList.remove('visible');
+  document.getElementById('actionButtons').classList.remove('visible');
+
+  // --- Show Floating Avatar Badge if Custom Horse exists ---
+  if (customHorse && customHorse.isCustom) {
+    const floatBadge = document.getElementById('floating-avatar');
+    if (floatBadge) floatBadge.classList.add('visible');
+    // Also keep cursor active if it was
+    const cursor = document.getElementById('cursor-follower');
+    if (cursor) cursor.style.display = 'block'; // Ensure it stays
+  }
+  
+  // Reset Machine State
+  gashaponTurned = false;
+  capsulesOpened = 0;
+  document.getElementById('capsulesTray').innerHTML = '';
+  document.getElementById('instructionText').style.display = 'block';
+  document.getElementById('instructionText').textContent = translations[currentLang].instruction_start;
+  
+  // Restore label
+  const label = document.querySelector('.knob-label');
+  if(label) label.style.display = 'block';
+
+  // Scroll to machine if needed
+  document.querySelector('.gashapon-section').scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+
+function turnGashapon() {
+  // If not already drawing, initialize data now
+  if (!isDrawing) {
+    startDraw(); // Initialize data
+  }
+
+  if (gashaponTurned) return;
+  gashaponTurned = true;
+  
+  // Hide label
+  const label = document.querySelector('.knob-label');
+  if(label) label.style.display = 'none';
+
+  // 1. Play Machine Video
+  const video = document.querySelector('.machine-img');
+  
+  if (video) {
+    video.muted = false; // Unmute for sound
+    video.currentTime = 0;
+    
+    // Play video
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        console.log('Video play failed:', error);
+        dropCapsulesSequence(); // Fallback
+      });
+    }
+
+    // Wait for video to end before dropping capsules
+    video.onended = () => {
+       dropCapsulesSequence();
+    };
+    
+    // Safety fallback: if video is long or stuck, force drop after 3s
+    setTimeout(() => {
+       // Only drop if tray is empty (i.e. video didn't trigger drop)
+       if (document.getElementById('capsulesTray').children.length === 0) {
+          dropCapsulesSequence(); 
+       }
+    }, 3000); 
+    
+  } else {
+    // Fallback if no video element
+    dropCapsulesSequence();
+  }
+  
+  // Vibration
+  if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+}
+
+function dropCapsulesSequence() {
+  // Prevent double dropping if triggered by multiple events (ended + timeout)
+  if(document.getElementById('capsulesTray').children.length > 0) return;
+
+  // Drop 3 capsules with delays
+  setTimeout(() => dropCapsule(0, 'c1'), 100);
+  setTimeout(() => dropCapsule(1, 'c2'), 800);
+  setTimeout(() => dropCapsule(2, 'c3'), 1500);
+}
+
+function dropCapsule(index, colorClass) {
+  const tray = document.getElementById('capsulesTray');
+  const capsuleWrapper = document.createElement('div');
+  capsuleWrapper.className = `capsule-wrapper`;
+  
+  let contentHTML = '';
+  
+  // Update labels to fit inside small Tangyuan filling
+  if (index === 0) { // Horse
+    const horseName = getLoc(currentHorse, 'name');
+    contentHTML = `<div class="icon" style="font-size:16px">${currentHorse.emoji}</div><div class="text" style="font-size:8px; line-height:1.1">${horseName}</div>`;
+  } else if (index === 1) { // Domain
+    const domainName = getLoc(currentDomain, 'name');
+    contentHTML = `<div class="icon" style="font-size:16px">${currentDomain.icon}</div><div class="text" style="font-size:8px; line-height:1.1">${domainName}</div>`;
+  } else { // Blessing
+    const blessingText = getLoc(currentBlessing, 'text');
+    // If English, might need smaller font or wrapping
+    const fontSize = currentLang === 'en' ? '6px' : '10px';
+    const breakIndex = Math.ceil(blessingText.length / 2);
+    const displayText = currentLang === 'en' ? blessingText : (blessingText.substring(0,breakIndex) + '<br>' + blessingText.substring(breakIndex));
+    
+    contentHTML = `<div class="icon" style="font-size:16px">🧧</div><div class="text" style="font-size:${fontSize}; line-height:1.2">${displayText}</div>`;
+  }
+
+  capsuleWrapper.innerHTML = `
+    <div class="capsule ${colorClass}" onclick="openCapsule(this, ${index})">
+      <div class="capsule-top"></div>
+      <div class="capsule-bottom"></div>
+      <div class="capsule-content">
+        ${contentHTML}
+      </div>
+    </div>
+  `;
+  
+  tray.appendChild(capsuleWrapper);
+  
+  // Trigger drop animation
+  setTimeout(() => {
+    const cap = capsuleWrapper.querySelector('.capsule');
+    if(cap) {
+        cap.classList.add('dropped');
+        playFlipSound(); // Reuse sound
+    }
+  }, 50);
+}
+
+function openCapsule(element, index) {
+  if (element.classList.contains('opened')) return;
+  
+  element.classList.add('opened');
+  if (navigator.vibrate) navigator.vibrate(50);
+  
+  capsulesOpened++;
+  
+  // Check if all opened
+  if (capsulesOpened === 3) {
+    setTimeout(() => {
+       showResult();
+       launchFireworks();
+       isDrawing = false;
+       setTimeout(initParallaxEffect, 100);
+    }, 1000);
+  }
+}
+
+
+function initParallaxEffect() {
+  const card = document.getElementById('greetingCard');
+  const container = document.getElementById('resultSection');
+  
+  if (!card || !container) return;
+
+  // Mouse Move Event (Desktop)
+  container.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Calculate rotation (-10 to 10 degrees)
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = ((y - centerY) / centerY) * -10; // Invert Y axis for tilt
+    const rotateY = ((x - centerX) / centerX) * 10;
+
+    // Apply Card Tilt
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+
+    // Parallax Image (Move opposite to mouse)
+    const img = card.querySelector('.ai-generated-image');
+    if (img) {
+      const panX = ((x - centerX) / centerX) * -15; // Move opposite
+      const panY = ((y - centerY) / centerY) * -15;
+      img.style.transform = `scale(1.15) translate(${panX}px, ${panY}px)`;
+    }
+    
+    // Parallax Text (Move slightly with mouse - float above)
+    const textElements = card.querySelectorAll('.card-blessing, .card-domain, .card-message');
+    textElements.forEach(el => {
+      const panX = ((x - centerX) / centerX) * 5;
+      const panY = ((y - centerY) / centerY) * 5;
+      el.style.transform = `translateZ(30px) translate(${panX}px, ${panY}px)`;
+    });
+  });
+
+  // Reset on Mouse Leave
+  container.addEventListener('mouseleave', () => {
+    card.style.transform = 'rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+    const img = card.querySelector('.ai-generated-image');
+    if (img) img.style.transform = 'scale(1.1) translate(0, 0)';
+    
+    const textElements = card.querySelectorAll('.card-blessing, .card-domain, .card-message');
+    textElements.forEach(el => {
+      el.style.transform = 'translateZ(20px) translate(0, 0)';
+    });
+  });
+
+  // Gyroscope (Mobile) - Basic Tilt
+  if (window.DeviceOrientationEvent && 'ontouchstart' in window) {
+    window.addEventListener('deviceorientation', (e) => {
+      // Limit angles
+      let tiltX = e.beta || 0; // -180 to 180 (front/back)
+      let tiltY = e.gamma || 0; // -90 to 90 (left/right)
+      
+      // Clamp values
+      if (tiltX > 20) tiltX = 20;
+      if (tiltX < -20) tiltX = -20;
+      if (tiltY > 20) tiltY = 20;
+      if (tiltY < -20) tiltY = -20;
+      
+      const rotateX = -tiltX; // Invert for natural feel
+      const rotateY = tiltY;
+
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+  }
+}
+
+function fillCard1(horse) {
+  document.getElementById('card1-back').innerHTML = `
+    <div class="horse-emoji">${horse.icon}</div>
+    <div class="horse-name">${getLoc(horse, 'name')}</div>
+    <div class="horse-desc">${getLoc(horse, 'desc')}</div>
+  `;
+}
+
+function fillCard2(domain) {
+  document.getElementById('card2-back').innerHTML = `
+    <div class="domain-emoji">${domain.icon}</div>
+    <div class="domain-text">${getLoc(domain, 'name')}</div>
+    <div class="horse-desc">${getLoc(domain, 'desc')}</div>
+  `;
+}
+
+function fillCard3(blessing) {
+  document.getElementById('card3-back').innerHTML = `
+    <div class="blessing-text" style="writing-mode: ${currentLang === 'en' ? 'horizontal-tb' : 'vertical-rl'}; letter-spacing: ${currentLang === 'en' ? '0' : '4px'}">${getLoc(blessing, 'text')}</div>
+  `;
+}
+
+async function showResult() {
+  const section = document.getElementById('resultSection');
+  const card = document.getElementById('greetingCard');
+  const fortune = generateFortune(currentHorse, currentDomain, currentBlessing);
+  
+  const horseName = getLoc(currentHorse, 'name');
+  const domainName = getLoc(currentDomain, 'name');
+  const blessingText = getLoc(currentBlessing, 'text');
+  const yearStamp = translations[currentLang].year_stamp;
+  const aiLoading = translations[currentLang].ai_badge_loading;
+  const aiDone = translations[currentLang].ai_badge_done;
+  const aiFallback = translations[currentLang].ai_badge_fallback;
+
+  card.innerHTML = `
+    <div class="card-horse-img">${currentHorse.icon}</div>
+    <div class="card-blessing">${blessingText}</div>
+    <div class="card-domain">${horseName} x ${domainName}</div>
+    <div class="card-message">${fortune}</div>
+    <div class="card-year-stamp">${yearStamp}</div>
+    <div class="card-watermark">github.com/duoduo-weekend-coder</div>
+    <div class="ai-badge" id="aiBadge">${aiLoading}</div>
+  `;
+
+  section.classList.add('visible');
+  
+  // Start emoji rain
+  startEmojiRain();
+
+  // Generate and display AI image
+  // Note: generateImagePrompt is English-based and used for API, so no change needed unless we want to localize prompt (not needed for image generation)
+  const prompt = generateImagePrompt(currentHorse, currentDomain, currentBlessing);
+  const imageUrl = await generateImage(prompt);
+  
+  if (imageUrl) {
+    card.innerHTML = `
+      <div class="ai-image-container">
+        <!-- Use wsrv.nl proxy to fix CORS issues with Together AI images for html2canvas -->
+        <img src="https://wsrv.nl/?url=${encodeURIComponent(imageUrl)}&output=jpg" alt="${horseName}" class="ai-generated-image" crossOrigin="anonymous" onload="this.classList.add('loaded')">
+      </div>
+      <div class="card-blessing">${blessingText}</div>
+      <div class="card-domain">${horseName} x ${domainName}</div>
+      <div class="card-message">${fortune}</div>
+      <div class="card-year-stamp">${yearStamp}</div>
+      <div class="card-watermark">github.com/duoduo-weekend-coder</div>
+      <div class="ai-badge">${aiDone}</div>
+    `;
+  } else {
+    const aiBadge = document.getElementById('aiBadge');
+    if (aiBadge) {
+      aiBadge.innerHTML = aiFallback;
+      aiBadge.style.opacity = '0.6';
+    }
+  }
+
+  setTimeout(() => {
+    document.getElementById('actionButtons').classList.add('visible');
+    const hl = document.getElementById('homeLink');
+    if(hl) hl.style.display = 'block';
+  }, 500);
+}
+
+function playAgain() {
+  document.getElementById('resultSection').classList.remove('visible');
+  document.getElementById('actionButtons').classList.remove('visible');
+  const hl = document.getElementById('homeLink');
+  if(hl) hl.style.display = 'none';
+
+  // Wait a split second for fade out
+  setTimeout(() => {
+    isDrawing = false;
+    startDraw();
+    
+    // Safety check: ensure machine is ready
+    gashaponTurned = false;
+  }, 300);
+}
+
+function resetDraw() {
+  // Hide result section
+  document.getElementById('resultSection').classList.remove('visible');
+  document.getElementById('actionButtons').classList.remove('visible');
+  
+  // Hide floating badge as main UI returns
+  const floatBadge = document.getElementById('floating-avatar');
+  if(floatBadge) floatBadge.classList.remove('visible');
+  
+  const hl = document.getElementById('homeLink');
+  if(hl) hl.style.display = 'none';
+
+  // Reset drawing state just in case
+  isDrawing = false;
+
+  // Show start button after result hides
+  setTimeout(() => {
+    const startBtn = document.getElementById('startBtn');
+    if(startBtn) startBtn.classList.remove('hidden');
+    // Show upload again if user wants to change photo
+    document.getElementById('uploadContainer').style.display = 'flex';
+    document.getElementById('uploadStatus').style.display = 'block';
+  }, 600);
+}
+
+function downloadCard() {
+  const card = document.getElementById('greetingCard');
+  if (!card) return;
+
+  // 1. Show loading toast
+  showToast('正在生成美图...');
+
+  // 2. Temporarily disable transform/transition for clean capture
+  const originalTransform = card.style.transform;
+  const originalTransition = card.style.transition;
+  const originalBoxShadow = card.style.boxShadow;
+  
+  // Reset styles for flat capture
+  card.style.transform = 'none';
+  card.style.transition = 'none';
+  card.style.boxShadow = 'none'; // Remove outer glow for cleaner crop if desired, or keep it. Keeping it might be better. Let's keep it.
+  card.style.boxShadow = originalBoxShadow;
+
+  // 3. Capture
+  // Ensure html2canvas is loaded
+  if (typeof html2canvas === 'undefined') {
+      showToast('组件加载中，请稍后再试...');
+      // Restore
+      card.style.transform = originalTransform;
+      card.style.transition = originalTransition;
+      return;
+  }
+
+  html2canvas(card, {
+    scale: 3, // High resolution
+    useCORS: true, // Critical for external images (like AI generated ones)
+    backgroundColor: null, // Use element's background
+    logging: false
+  }).then(canvas => {
+    // Restore styles
+    card.style.transform = originalTransform;
+    card.style.transition = originalTransition;
+
+    // Download
+    const link = document.createElement('a');
+    link.download = `2026_马年好运签_${new Date().getTime()}.png`;
+    link.href = canvas.toDataURL('image/png', 1.0);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    showToast('✨ 照片已保存到相册！');
+  }).catch(err => {
+    console.error('Download failed:', err);
+    // Restore styles
+    card.style.transform = originalTransform;
+    card.style.transition = originalTransition;
+    showToast('保存失败，请手动截图保存哦');
+  });
+}
+
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('已复制到剪贴板，快去分享吧！');
+  }).catch(() => {
+    showToast('长按复制分享给好友');
+  });
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// Simple haptic-like sound (just visual for now)
+function playFlipSound() {
+  if (navigator.vibrate) navigator.vibrate(30);
+}
+
+// ============================================================
+// EMOJI RAIN
+// ============================================================
+
+function startEmojiRain() {
+  // Use icons from the result + festive ones
+  const icons = [currentDomain.icon, currentHorse.icon, '🧧', '✨', '🏮'];
+  
+  const interval = setInterval(() => {
+    const el = document.createElement('div');
+    el.innerText = icons[Math.floor(Math.random() * icons.length)];
+    el.className = 'emoji-rain';
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.animationDuration = (Math.random() * 2 + 2) + 's'; // 2-4s duration
+    el.style.opacity = Math.random() * 0.5 + 0.5;
+    el.style.fontSize = (Math.random() * 20 + 20) + 'px';
+    document.body.appendChild(el);
+    
+    // Remove after animation
+    setTimeout(() => el.remove(), 4000);
+  }, 100); // Spawn every 100ms
+
+  // Stop spawning after 3 seconds
+  setTimeout(() => clearInterval(interval), 3000);
+}
+
+// ============================================================
+// FIREWORKS
+// ============================================================
+
+const canvas = document.getElementById('fireworks-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let fireworksActive = false;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+class Particle {
+  constructor(x, y, color) {
+    this.x = x;
+    this.y = y;
+    this.color = color;
+    const angle = Math.random() * Math.PI * 2;
+    const speed = Math.random() * 6 + 2;
+    this.vx = Math.cos(angle) * speed;
+    this.vy = Math.sin(angle) * speed;
+    this.alpha = 1;
+    this.decay = Math.random() * 0.02 + 0.01;
+    this.size = Math.random() * 3 + 1;
+  }
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+    this.vy += 0.05; // gravity
+    this.alpha -= this.decay;
+    this.size *= 0.98;
+  }
+  draw() {
+    ctx.save();
+    ctx.globalAlpha = this.alpha;
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+function createFirework(x, y) {
+  const colors = ['#FF4444', '#FFD700', '#FF6B6B', '#FFA500', '#FF69B4', '#FFE4B5', '#FF8C00'];
+  const color = colors[Math.floor(Math.random() * colors.length)];
+  for (let i = 0; i < 50; i++) {
+    particles.push(new Particle(x, y, color));
+  }
+}
+
+function animateFireworks() {
+  if (!fireworksActive && particles.length === 0) return;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles = particles.filter(p => p.alpha > 0.01);
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+
+  if (particles.length > 0 || fireworksActive) {
+    requestAnimationFrame(animateFireworks);
+  }
+}
+
+function launchFireworks() {
+  fireworksActive = true;
+  const w = canvas.width;
+  const h = canvas.height;
+
+  // Launch several fireworks
+  createFirework(w * 0.3, h * 0.3);
+  setTimeout(() => createFirework(w * 0.7, h * 0.25), 200);
+  setTimeout(() => createFirework(w * 0.5, h * 0.35), 400);
+  setTimeout(() => createFirework(w * 0.2, h * 0.4), 700);
+  setTimeout(() => createFirework(w * 0.8, h * 0.3), 900);
+
+  animateFireworks();
+
+  setTimeout(() => { fireworksActive = false; }, 1500);
+}
+
+// ============================================================
+// INIT
+// ============================================================
+// Knob click is handled inline in HTML onclick="turnGashapon()"
+
+// Small idle firework on load
+setTimeout(() => {
+  createFirework(canvas.width * 0.5, canvas.height * 0.2);
+  animateFireworks();
+}, 1000);
+</script>
+
+</body>
+</html>
